@@ -1,11 +1,18 @@
+// Add components for displaying products, the cart (in a modal) and a checkout form in the modal
+// fetch the meals data from the backend and show it on the screen
+// allow users to add & remove products to / from cart
+// Send ccaret dat along with user data (from form) to backend
+// handle Loading and Error states.
+
+import Header from "./components/Header"
+import Meals from "./components/Meals"
 function App() {
-  return (
-    <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
-    </>
-  );
+	return (
+		<div>
+			<Header />
+			<Meals />
+		</div>
+	)
 }
 
-export default App;
+export default App
