@@ -3,27 +3,31 @@
 // allow users to add & remove products to / from cart
 // Send ccaret dat along with user data (from form) to backend
 // handle Loading and Error states.
-import { useCallback, useRef } from 'react'
-import { useFetch } from './hooks/useFetch'
+import { useRef, useState } from 'react'
 
-import { fetchMeals } from './API'
+import CartContextProvider from './store/cart-context'
+
 import Header from './components/Header'
 import Meals from './components/Meals'
-import CartModal from './components/CartModal'
+import Modal from './components/Modal'
+import Cart from './components/Cart'
 
 function App() {
 	const cartDialog = useRef()
 
 	function handleOpenCart() {
 		cartDialog.current.showModal()
-		console.log('Opening modal')
 	}
 
 	return (
 		<div>
-			<Header onOpenCart={handleOpenCart} />
-			<Meals />
-			<CartModal ref={cartDialog}>This is the Cart</CartModal>
+			<CartContextProvider>
+				<Header onOpenCart={handleOpenCart} />
+				<Meals />
+				<Modal ref={cartDialog}>
+					<Cart />
+				</Modal>
+			</CartContextProvider>
 		</div>
 	)
 }

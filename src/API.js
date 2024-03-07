@@ -6,5 +6,9 @@ export async function fetchMeals() {
 		throw new Error('Failed to fetch places')
 	}
 
-	return resData.places
+	return resData
+}
+
+export async function storeMeals() {
+	const response = await fetch('http://localhost:3000/')
 }
